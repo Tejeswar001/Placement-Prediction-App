@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
-export default function page() {
+export default function Page() {
     const [iq, setIq] = useState("");
     const [cgpa, setCgpa] = useState("");
     const [previousSemesterGpa, setPreviousSemesterGpa] = useState("");
