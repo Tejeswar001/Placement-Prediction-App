@@ -4,7 +4,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+
+# Configure CORS to allow all origins for now
+CORS(app, origins="*")
 
 # Load model
 model = joblib.load('random_forest_model.pkl')
