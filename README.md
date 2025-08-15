@@ -45,7 +45,7 @@ APP/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Tejeswar001/Placement-Prediction-App.git
 cd APP
 ```
 
@@ -124,10 +124,14 @@ For production deployment, update the API URL to your production backend.
 
 The application uses a Random Forest model trained on student data with the following features:
 
-- **CGPA**: Cumulative Grade Point Average (0.0 - 10.0)
-- **IQ Score**: Intelligence Quotient score (80 - 200)
-- **Profile Score**: Overall profile rating (0 - 100)
-- **Experience**: Years of relevant experience
+- IQ	Student’s IQ score (normally distributed around 100)
+- Prev_Sem_Result	GPA from the previous semester (range: 5.0 to 10.0)
+- CGPA	Cumulative Grade Point Average (range: ~5.0 to 10.0)
+- Academic_Performance	Annual academic rating (scale: 1 to 10)
+- Internship_Experience	Whether the student has completed any internship (Yes/No)
+- Extra_Curricular_Score	Involvement in extracurriculars (score from 0 to 10)
+- Communication_Skills	Soft skill rating (scale: 1 to 10)
+- Projects_Completed	Number of academic/technical projects completed (0 to 5)
 
 **Output**: Binary classification (0 = Not Placed, 1 = Placed)
 
@@ -141,7 +145,9 @@ Predicts placement probability for a student.
 
 ```json
 {
-  "features": [cgpa, iq_score, profile_score, experience]
+  "features": ['IQ', 'Prev_Sem_Result', 'CGPA', 'Academic_Performance',
+       'Internship_Experience', 'Extra_Curricular_Score',
+       'Communication_Skills', 'Projects_Completed']
 }
 ```
 
