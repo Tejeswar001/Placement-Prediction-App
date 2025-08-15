@@ -20,10 +20,12 @@ export default function Page() {
           <h1 className="text-white text-2xl md:text-3xl lg:text-5xl">Predict Your Chances of Getting Placed</h1>
           <p className="text-white mt-4 lg:text-2xl">Enter your details to find out!</p>
           <div className='flex gap-4 flex-col lg:flex-row'>
-            <button className='mt-6 btn btn-secondary btn-outline lg:btn-lg btn-sm btn-ghost'>
-              View on GitHub 
-              <Github className='inline-block ml-2' />
-            </button>
+            <a href='https://github.com/Tejeswar001/Placement-Prediction-App' target='_blank'>
+              <button className='mt-6 btn btn-secondary btn-outline lg:btn-lg btn-sm btn-ghost'>
+                View on GitHub
+                <Github className='inline-block ml-2' />
+              </button>
+            </a>
             <button className='mt-6 btn btn-primary btn-outline btn-sm lg:btn-lg btn-ghost' onClick={handleGetStarted}>
               Get Started 
               <motion.div
