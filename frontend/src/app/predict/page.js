@@ -25,7 +25,8 @@ export default function Page() {
         router.push('/');
     }
     
-    const handlePredict = async () => {
+    const handlePredict = async (e) => {
+        e.preventDefault();
 
         setLoading(true);
         try{
@@ -75,7 +76,7 @@ export default function Page() {
 
 
 
-        <form className="flex flex-col items-center gap-6 py-8" onSubmit={(e)=> e.preventDefault()}>
+        <form className="flex flex-col items-center gap-6 py-8" onSubmit={handlePredict}>
             
             {/* Group for IQ and CGPA */}
             <div className='flex flex-col md:flex-row gap-6 w-full justify-center items-center'>
@@ -84,6 +85,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Enter your IQ</label>
                     <input 
+                        required
                         placeholder="IQ (range: ~50.0 to 200.0)" 
                         type="number" 
                         className="input input-bordered w-full" 
@@ -98,6 +100,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Enter your CGPA</label>
                     <input 
+                        required
                         placeholder="CGPA (range: ~5.0 to 10.0)" 
                         type="number" 
                         step="any"
@@ -116,6 +119,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Enter your Previous Semester GPA</label>
                     <input 
+                        required
                         placeholder="GPA (range: ~5.0 to 10.0)" 
                         type="number" 
                         step="any"
@@ -131,6 +135,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Academic Performance</label>
                     <input 
+                        required
                         placeholder="Annual academic rating (scale: 1 to 10)" 
                         type="number" 
                         className="input input-bordered w-full" 
@@ -148,6 +153,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Extra-Curricular Activities</label>
                     <input 
+                        required
                         placeholder="Involvement in extracurriculars (score from 0 to 10)" 
                         type="number" 
                         className="input input-bordered w-full" 
@@ -162,6 +168,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Communication Skills</label>
                     <input 
+                        required
                         placeholder="Communication skills rating (scale: 1 to 10)" 
                         type="number" 
                         className="input input-bordered w-full" 
@@ -179,6 +186,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2 w-full max-w-md">
                     <label className="text-white font-medium">Major Projects Completed</label>
                     <input 
+                        required
                         placeholder="Number of projects completed (0 to 5)" 
                         type="number" 
                         className="input input-bordered w-full" 
@@ -210,12 +218,11 @@ export default function Page() {
             {/* Submit Button */}
                 <div className="flex justify-center mt-6">
                     {loading ? (
-                        <span className="text-white">Loading...</span>
+                        <span className="text-white">Loading... Waiting for Server to Respond....</span>
                     ) : (
                         <button
                         type="submit"
                         className="btn btn-primary"
-                        onClick={handlePredict}
                         >
                         Submit
                         </button>
